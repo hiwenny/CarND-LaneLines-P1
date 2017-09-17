@@ -22,8 +22,25 @@ The goals / steps of this project are the following:
 ### Reflection
 
 ### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
+As the first step, I chose a static image to develop test my code on. My pipeline was divided into 3 main parts: image preprocessing, edge detection, and line finding.
 
-My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I .... 
+In preprocessing stage I grayscaled the image, then I applied Gaussian smoothing. This step was done to reduce the size of the image and to reduce noise in the image before working on it further.
+
+After that, I fed the image through the Canny function to get the array of points signifying edges of objects.
+Then, assuming stationary camera, I limited the are of interest further by applying region masking on the Canny edges array, limiting it to the bottom half of the image in the shape of a trapezoid.
+
+After that, the last stage was line detection using Hough transform. The parameters fed into it decide when a 
+
+
+
+
+
+
+
+
+
+
+
 
 In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
 
