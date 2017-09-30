@@ -31,12 +31,17 @@ The masked area was further split into left-right sides. This was done to make i
 I added some more processing methods in the line detection stage. 
 Instead of drawing the lines using coordinates from Hough transform directly, I used the points to obtain the line of best fit, then modified the draw_lines() function to use these new, extrapolated points to draw a single line extending from origin to the middle of the image.
 
+### 2. Sample results
+![solidWhiteCurve](./result_images/solidWhiteCurve.png)
 I chose a static image to test my code on as a starting point.
 Since a video is just a series of images, the process would remain the same throughout the iterations.
-The challenge then would be to figure out a just-right setting that can be applied to a wide range of scenario.
+The challenge then would be to figure out a just-right Hough transformation setting that can be applied to a wide range of scenario.
 
-### 2. Sample results
-[solidWhiteCurve][solidWhiteRight][solidYellowCurve][solidYellowCurve2][whiteCarLaneSwitch]
+The rest of the test_images can be found in here:
+[solidWhiteRight]
+[solidYellowCurve]
+[solidYellowCurve2]
+[whiteCarLaneSwitch]
 
 ### 3. Potential shortcomings and possible improvements to pipeline
 
@@ -44,4 +49,4 @@ My current pipeline did well with the test images and videos, but failed the cha
 - different lighting condition: not applicable in this case since they are roughly the same, but I imagine it would perform poorly in cloudy/nighttime since there is no intensity correction.
 - different shape of the lane line: this might be the main reason why the pipeline failed. Since the lane lines were not straight, the Hough transform might have returned back widely varying coordinates, and as the result the line fitting was way off.
     This might be fixable with some transformations on the source image using angle data from accelerometer.
-- there might be better ways to achieve what I wanted with my pipeline with faster / simpler method, need feedback on this.
+- there might be better ways to achieve what I wanted with my pipeline with faster / simpler method.
